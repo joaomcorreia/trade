@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCW Trade Hub - AI Trading Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .online { background: #4CAF50; }
+        .offline { background: #f44336; }
+        .api-test {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        button {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 JCW Trade Hub</h1>
+            <h2>AI Trading Dashboard - System Status</h2>
+        </div>
+
+        <div class="card">
+            <h3>🖥️ Backend API Server</h3>
+            <p>Status: <span id="backend-status" class="status offline">Checking...</span></p>
+            <div id="backend-response" class="api-test">Connecting to API...</div>
+            <button onclick="testBackend()">Test Backend</button>
+        </div>
+
+        <div class="card">
+            <h3>🎯 Available Features</h3>
+            <ul>
+                <li>✅ FastAPI Backend with AI Integration</li>
+                <li>✅ Real-time Market Data (Yahoo Finance)</li>
+                <li>✅ OpenAI GPT Trading Assistant</li>
+                <li>✅ Technical Analysis (RSI, MACD, Volume)</li>
+                <li>✅ Portfolio Management</li>
+                <li>✅ News Sentiment Analysis</li>
+                <li>✅ Paper Trading Environment</li>
+                <li>✅ WebSocket Real-time Updates</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>🌐 Deployment Options</h3>
+            <h4>✅ CyberPanel Compatible!</h4>
+            <p><strong>Yes, this works perfectly with CyberPanel!</strong></p>
+            <ul>
+                <li><strong>Backend</strong>: Python FastAPI (WSGI/ASGI compatible)</li>
+                <li><strong>Frontend</strong>: Static files (React build)</li>
+                <li><strong>Database</strong>: SQLite or PostgreSQL</li>
+                <li><strong>Cost</strong>: €5/month hosting + domain</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>📊 API Endpoints Test</h3>
+            <button onclick="testHealth()">Test Health</button>
+            <button onclick="testAPI()">Test API</button>
+            <div id="api-results" class="api-test">Click buttons to test API endpoints</div>
+        </div>
+    </div>
+
+    <script>
+        async function testBackend() {
+            try {
+                const response = await fetch('http://localhost:8001/');
+                const data = await response.json();
+                document.getElementById('backend-status').textContent = 'Online';
+                document.getElementById('backend-status').className = 'status online';
+                document.getElementById('backend-response').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('backend-status').textContent = 'Offline';
+                document.getElementById('backend-status').className = 'status offline';
+                document.getElementById('backend-response').textContent = 'Error: ' + error.message;
+            }
+        }
+
+        async function testHealth() {
+            try {
+                const response = await fetch('http://localhost:8001/health');
+                const data = await response.json();
+                document.getElementById('api-results').textContent = 'Health Check: ' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('api-results').textContent = 'Health Check Error: ' + error.message;
+            }
+        }
+
+        async function testAPI() {
+            try {
+                const response = await fetch('http://localhost:8001/api/test');
+                const data = await response.json();
+                document.getElementById('api-results').textContent = 'API Test: ' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('api-results').textContent = 'API Test Error: ' + error.message;
+            }
+        }
+
+        // Auto-test backend on load
+        window.onload = function() {
+            testBackend();
+        };
+    </script>
+</body>
+</html>

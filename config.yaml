@@ -1,0 +1,47 @@
+# AI Trading Dashboard Configuration
+
+# Technical Analysis
+RSI_PERIOD: 14
+RSI_OVERBOUGHT: 70
+RSI_OVERSOLD: 30
+MACD_FAST: 12
+MACD_SLOW: 26
+MACD_SIGNAL: 9
+
+# Risk Management
+MAX_POSITION_SIZE: 10000
+STOP_LOSS_PERCENTAGE: 5.0
+MAX_RISK_PER_TRADE: 2.0
+POSITION_SIZING_METHOD: "fixed"  # "fixed", "percentage", "volatility"
+
+# Trading Rules
+ALLOW_WEEKEND_TRADING: false
+MARKET_HOURS_ONLY: true
+MAX_TRADES_PER_DAY: 10
+MIN_TIME_BETWEEN_TRADES: 300  # seconds
+
+# AI Configuration
+AI_DECISION_CONFIDENCE_THRESHOLD: 0.75
+AI_ANALYSIS_UPDATE_INTERVAL: 600  # seconds
+AI_TRADING_ENABLED: false
+AI_PAPER_TRADING: true
+
+# Data Sources
+PRIMARY_DATA_SOURCE: "yfinance"  # "yfinance", "alpha_vantage"
+NEWS_SOURCE: "newsapi"  # "newsapi", "polygon"
+UPDATE_FREQUENCY: 60  # seconds
+
+# Notifications
+ENABLE_EMAIL_NOTIFICATIONS: false
+ENABLE_DISCORD_NOTIFICATIONS: false
+ENABLE_SLACK_NOTIFICATIONS: false
+
+# Backtesting
+BACKTEST_START_DATE: "2023-01-01"
+BACKTEST_END_DATE: "2024-01-01"
+BACKTEST_INITIAL_CAPITAL: 100000
+
+# Logging
+LOG_LEVEL: "INFO"
+LOG_TO_FILE: true
+LOG_ROTATION: "daily"

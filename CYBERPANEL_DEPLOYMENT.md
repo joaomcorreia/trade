@@ -1,11 +1,21 @@
 # JCW Trade Hub - CyberPanel Deployment Guide
 
-## 🎯 Deploying to jcwtradehub.com with CyberPanel
+## 🎯 Deploying AI Trading Dashboard to jcwtradehub.com
+
+### 🤖 Enhanced Features Now Available
+- **AI Trading Assistant**: OpenAI-powered chat and market analysis
+- **Real-time News Feed**: Market news with sentiment analysis  
+- **Technical Indicators**: RSI, MACD, volume analysis
+- **Auto-Trading**: AI-driven autonomous trading capability
+- **Professional UI**: JCW TRADE HUB branded login system
 
 ### ✅ Prerequisites
 - CyberPanel hosting (€5/month VPS)
 - Domain: jcwtradehub.com (already owned)
 - SSH access to server
+- **API Keys for Full Functionality**:
+  - OpenAI API key (for AI assistant features)
+  - NewsAPI key (for real-time news)
 
 ### 📁 File Structure for CyberPanel
 ```
@@ -131,20 +141,64 @@ cd /home/jcwtradehub.com/backend
 python main.py
 ```
 
-**Configure Auto-Start:**
-- Use CyberPanel's Python app manager
-- Or create systemd service
+### 🤖 Step 8: AI & News Configuration
+
+**Deploy Backend Automatically:**
+```bash
+# Upload and run the backend deployment script
+chmod +x /home/jcwtradehub.com/deploy_backend.sh
+sudo /home/jcwtradehub.com/deploy_backend.sh
+```
+
+**Configure API Keys:**
+```bash
+# Edit environment file
+nano /home/jcwtradehub.com/backend/.env
+
+# Add your API keys:
+OPENAI_API_KEY=sk-your-openai-key-here
+NEWS_API_KEY=your-newsapi-key-here
+SECRET_KEY=your-secret-key-here
+```
+
+**Restart Backend Service:**
+```bash
+sudo systemctl restart jcwtradehub-backend
+sudo systemctl status jcwtradehub-backend
+```
 
 ### 📊 Step 9: Testing
 
 **Test Frontend:** https://jcwtradehub.com
-**Test API:** https://jcwtradehub.com/api/health
-**Test AI Chat:** https://jcwtradehub.com/api/ai/chat
+**Test Backend API:** http://your-server-ip:8000/docs
+**Test AI Assistant:** Use chat in dashboard
+**Test News Feed:** Check News & Analysis tab
+
+### 🔑 API Keys Setup Guide
+
+**OpenAI API Key** (for AI assistant):
+1. Go to https://platform.openai.com/api-keys
+2. Create new API key
+3. Add to `.env` file: `OPENAI_API_KEY=sk-...`
+
+**NewsAPI Key** (for news feed):
+1. Go to https://newsapi.org/register
+2. Get free API key
+3. Add to `.env` file: `NEWS_API_KEY=...`
+
+**Without API Keys:**
+- Dashboard works with demo data
+- AI uses rule-based responses
+- News shows mock articles
 
 ### 🎯 Final Result
 
 **Your Professional AI Trading Platform:**
 - ✅ **URL**: https://jcwtradehub.com
+- ✅ **Login System**: JCW TRADE HUB branded
+- ✅ **AI Assistant**: Chat-based trading help
+- ✅ **News Feed**: Real-time market news
+- ✅ **Technical Analysis**: RSI, MACD indicators
 - ✅ **SSL**: Secure HTTPS
 - ✅ **Performance**: Fast loading
 - ✅ **Mobile**: Responsive design

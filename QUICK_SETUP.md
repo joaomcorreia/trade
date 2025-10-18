@@ -1,8 +1,14 @@
-# 🚀 JCW Trade Hub - Quick Setup Checklist
+# 🚀 Quick Setup Guide
 
-## ✅ Step-by-Step Setup (After uploading files to public_html)
+Get your AI Trading Platform running in under 5 minutes!
 
-### 1. SSH into your server
+## Prerequisites
+
+- Python 3.8 or higher
+- Internet connection for market data
+- 10MB free disk space
+
+## 1-Click Setup (Windows)
 ```bash
 ssh your-username@your-server-ip
 ```

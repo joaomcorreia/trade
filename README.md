@@ -1,53 +1,68 @@
-# AI Trading Dashboard
+# 🚀 AI Trading Platform
 
-A comprehensive trading dashboard with an autonomous AI assistant that makes trading decisions based on technical indicators, market events, and news analysis.
+A comprehensive AI-powered trading platform with real-time market data, intelligent signal generation, and a modern web dashboard.
 
-## 🚀 Features
+## ✨ Features
 
-- **Real-time Market Data**: Live price feeds and market data visualization
-- **Technical Indicators**: RSI, MACD, Volume analysis with configurable parameters
-- **News Integration**: Real-time news sentiment analysis and market impact assessment
-- **AI Trading Assistant**: Autonomous trading decisions with confidence scoring
-- **Interactive Dashboard**: Modern React-based UI with real-time charts
-- **Risk Management**: Built-in stop-loss, position sizing, and risk controls
-- **Real-time Updates**: WebSocket connections for live data streaming
-- **Portfolio Management**: Track positions, P&L, and trading performance
-- **Chat Interface**: Interactive AI assistant for trading guidance
+### 🔥 Core Features
+- **Real-time Market Data** - Live prices from Yahoo Finance API (no API keys required)
+- **AI Trading Signals** - Intelligent buy/sell recommendations with confidence scores
+- **Multi-Market Support** - Stocks, Crypto, Forex, Commodities, and Indices
+- **WebSocket Streaming** - Live price updates and portfolio tracking
+- **Database Persistence** - SQLite database for trading history and AI signals
+- **Modern Web Dashboard** - Responsive HTML/CSS/JS interface
 
-## 🛠️ Tech Stack
+### 📊 Market Coverage
+- **Stocks**: AAPL, MSFT, GOOGL, TSLA, AMZN, NVDA, META, NFLX, JPM, V
+- **Cryptocurrency**: BTC-USD, ETH-USD, ADA-USD, DOT-USD, SOL-USD, LINK-USD
+- **Forex**: EUR/USD, GBP/USD, USD/JPY, AUD/USD, USD/CAD, USD/CHF
+- **Commodities**: Gold, Silver, Crude Oil, Natural Gas, Copper
+- **Indices**: S&P 500, Dow Jones, NASDAQ, Russell 2000, VIX
 
-### Backend
-- **FastAPI** - High-performance API framework
-- **SQLite** - Local database for trades and analysis
-- **WebSocket** - Real-time data streaming
-- **TA-Lib** - Technical analysis library
-- **YFinance** - Market data provider
-- **OpenAI** - AI assistant integration
-- **NewsAPI** - News data and sentiment analysis
+### 🤖 AI Features
+- **Technical Analysis** - RSI, MACD, SMA indicators
+- **Sentiment Analysis** - Market news integration with real-time context
+- **Risk Assessment** - Portfolio risk evaluation
+- **Pattern Recognition** - Price pattern analysis
 
-### Frontend
-- **React** with TypeScript - Modern UI framework
-- **Material-UI** - Component library
-- **Chart.js** - Trading charts and visualization
-- **WebSocket Client** - Real-time data updates
-- **Axios** - API communication
-
-## 📦 Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.8+
-- Node.js 16+
-- Git
+- Internet connection for market data
 
 ### Installation
-
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd trade
+   git clone https://github.com/your-username/ai-trading-platform.git
+   cd ai-trading-platform
    ```
 
-2. **Run setup script**
+2. **Install dependencies**
+   ```bash
+   pip install fastapi uvicorn yfinance sqlalchemy databases aiosqlite websockets requests
+   ```
+
+3. **Start the platform**
+   
+   **Option A: Use the launcher (Windows)**
+   ```bash
+   quick_start.bat
+   ```
+   
+   **Option B: Manual startup**
+   ```bash
+   # Terminal 1: Start backend
+   python complete_ai_backend.py
+   
+   # Terminal 2: Start frontend
+   python -m http.server 3000
+   ```
+
+4. **Access the platform**
+   - 📊 **Trading Dashboard**: http://localhost:3000/ai_trading_dashboard.html
+   - 📚 **API Documentation**: http://localhost:8002/docs
+   - ⚡ **WebSocket**: ws://localhost:8002/ws
    
    **Windows:**
    ```cmd

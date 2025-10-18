@@ -1,0 +1,28 @@
+# AI Trading Platform Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core Framework
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+
+# Market Data
+yfinance>=0.2.18
+
+# Database
+sqlalchemy>=2.0.0
+databases[sqlite]>=0.7.0
+aiosqlite>=0.19.0
+
+# WebSocket & Real-time
+websockets>=11.0
+
+# HTTP Requests
+requests>=2.31.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Optional: Enhanced Features
+# alpha-vantage>=2.3.1    # Uncomment for Alpha Vantage API support
+# python-dotenv>=1.0.0    # Uncomment for .env file support
